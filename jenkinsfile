@@ -1,19 +1,19 @@
 pipeline {
 
-  agent any
+  agent { label 'kubepods' }
 
   stages {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/niralaakkan/docker_nginx.git'
+        git url:'https://github.com/niralaakkan/docker_nginx.git'
       }
     }
 
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "ngnix_deployment.yaml", kubeconfigId: "kubeconfig")
+          kubernetesDeploy(configs: "ngnix_deployment.yaml", kubeconfigId: "mykubeconfig")
         }
       }
     }
