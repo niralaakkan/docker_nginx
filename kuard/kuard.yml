@@ -39,4 +39,4 @@ spec:
     nodePort: 30436
   selector:
     app: kuard
-  type: NodePord
+  type: NodePort
