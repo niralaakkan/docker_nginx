@@ -38,3 +38,5 @@ spec:
     targetPort: 8080
     nodePort: 30436
   selector:
+    app: kuard
+  type: NodePord
