@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kuard-ns
+  name: kuard-ns1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -9,7 +9,7 @@ metadata:
   labels:
     app: kuard
   name: kuard
-  namespace: kuard-ns
+  namespace: kuard-ns1
 spec:
   replicas: 5
   selector:
@@ -30,13 +30,13 @@ metadata:
   labels:
     app: kuard-srv
   name: kuard-srv
-  namespace: kuard-ns
+  namespace: kuard-ns1
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 8080
-    nodePort: 30436
+    nodePort: 30435
   selector:
     app: kuard
   type: NodePort
